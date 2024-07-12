@@ -19,10 +19,8 @@ const LaunchCard: React.FC<LaunchCardProps> = ({
 }) => {
   const router = useRouter();
 
-  // Parse the date string into a Date object
   const launchDate = new Date(date);
 
-  // Format date to include time and timezone
   const dateTimeOptions: Intl.DateTimeFormatOptions = {
     hour: 'numeric',
     minute: 'numeric',
@@ -30,7 +28,6 @@ const LaunchCard: React.FC<LaunchCardProps> = ({
     timeZoneName: 'short',
   };
 
-  // Format date to include full date, month, and year
   const dateFormatOptions: Intl.DateTimeFormatOptions = {
     weekday: 'long',
     day: 'numeric',
@@ -38,7 +35,6 @@ const LaunchCard: React.FC<LaunchCardProps> = ({
     year: 'numeric',
   };
 
-  // Get formatted date and time strings
   const formattedDate = launchDate.toLocaleDateString(
     undefined,
     dateFormatOptions,
@@ -48,7 +44,6 @@ const LaunchCard: React.FC<LaunchCardProps> = ({
     dateTimeOptions,
   );
 
-  // Handle click event to navigate to the launch detail page
   const handleCardClick = () => {
     router.push(`/launches/${id}`);
   };
